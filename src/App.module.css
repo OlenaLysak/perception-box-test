@@ -1,0 +1,13 @@
+.App {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.AppHeader {
+  font-size: 40px;
+  color: #1f76d2;
+  margin: 20px;
+}

@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+
+//Style
+import styles from './App.module.css';
+
+//Components
+import { Autocomplete } from '@mui/material';
+import CharactersList from './CharactersList';
+
+//Context
+import useMyContext from './context/useMyContext';
 
 function App() {
+  const [characters, setCharacters] = useState([]);
+  const { currentUrl } = useMyContext();
+  const [error, setError] = useState('');
+  const [pageInfo, setPageInfo] = useState({});
+
+  useEffect(() => {
+    fetch(currentUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setCharacters(data.results);
+        setPageInfo(data.info);
+      })
+      .catch((error) => setError(error.message));
+  }, [currentUrl]);
+
+  if (error) return <h1>{error}</h1>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.App}>
+      <header className={styles.AppHeader}>Rick and Morty test task</header>
+      {/* <Autocomplete/> */}
+      <CharactersList characters={characters} pageInfo={pageInfo} />
     </div>
   );
 }
