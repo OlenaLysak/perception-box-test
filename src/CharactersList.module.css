@@ -9,6 +9,7 @@
 .list {
   list-style-type: circle;
   margin-bottom: 30px;
+  width: 400px;
 }
 
 .listItem {

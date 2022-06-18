@@ -1,34 +1,27 @@
 import React, { createContext, useState, useEffect } from 'react';
 
+//Constants
+import { INITIAL_URL } from '../constants/constants';
+
 export const MyContext = createContext();
 
 const MyContextProvider = ({ children }) => {
-  const initialUrl = 'https://rickandmortyapi.com/api/character/?page=1&';
-  const [currentUrl, setCurrentUrl] = useState(initialUrl);
-  const [species, setSpecies] = useState('none');
-  const [status, setStatus] = useState('none');
-  const [gender, setGender] = useState('none');
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentUrl, setCurrentUrl] = useState(INITIAL_URL);
+  const [selected, setSelected] = useState('');
 
   useEffect(() => {
-    const speciesFilter = species === 'none' ? '' : `species=${species}&`;
-    const statusFilter = status === 'none' ? '' : `status=${status}&`;
-    const genderFilter = gender === 'none' ? '' : `gender=${gender}`;
-    const newUrl = initialUrl + speciesFilter + statusFilter + genderFilter;
+    if (!selected) return setCurrentUrl(INITIAL_URL);
+
+    const nameFilter = 'name=' + selected.replaceAll(' ', '+');
+    const newUrl = INITIAL_URL + nameFilter;
+
     setCurrentUrl(newUrl);
-  }, [species, status, gender]);
+  }, [selected]);
 
   const contextValues = {
     currentUrl,
     setCurrentUrl,
-    species,
-    setSpecies,
-    status,
-    setStatus,
-    gender,
-    setGender,
-    currentPage,
-    setCurrentPage,
+    setSelected,
   };
 
   return (

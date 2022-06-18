@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './App.module.css';
 
 //Components
-import { Autocomplete } from '@mui/material';
+import MyAutocomplete from './components/Autocomplete/MyAutocomplete';
 import CharactersList from './CharactersList';
 
 //Context
@@ -15,6 +15,11 @@ function App() {
   const { currentUrl } = useMyContext();
   const [error, setError] = useState('');
   const [pageInfo, setPageInfo] = useState({});
+  const { setSelected } = useMyContext();
+
+  const handleOptionSelected = (e, value) => {
+    setSelected(value);
+  };
 
   useEffect(() => {
     fetch(currentUrl)
@@ -31,7 +36,7 @@ function App() {
   return (
     <div className={styles.App}>
       <header className={styles.AppHeader}>Rick and Morty test task</header>
-      {/* <Autocomplete/> */}
+      <MyAutocomplete handleOptionSelected={handleOptionSelected} />
       <CharactersList characters={characters} pageInfo={pageInfo} />
     </div>
   );

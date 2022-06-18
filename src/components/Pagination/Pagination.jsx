@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 //Styles
 import styles from './Pagination.module.css';
@@ -14,8 +14,8 @@ let cx = classNames.bind(styles);
 
 const Pagination = ({ pageInfo, children }) => {
   const { pages, next, prev } = pageInfo;
-  const { currentUrl, setCurrentUrl, currentPage, setCurrentPage } =
-    useMyContext();
+  const [currentPage, setCurrentPage] = useState(1);
+  const { currentUrl, setCurrentUrl } = useMyContext();
 
   function goToNextPage() {
     setCurrentPage((page) => page + 1);
