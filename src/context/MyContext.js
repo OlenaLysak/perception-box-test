@@ -8,6 +8,7 @@ export const MyContext = createContext();
 const MyContextProvider = ({ children }) => {
   const [currentUrl, setCurrentUrl] = useState(INITIAL_URL);
   const [selected, setSelected] = useState('');
+  // const [currChar, setCurrChar] = useState(null);
 
   useEffect(() => {
     if (!selected) return setCurrentUrl(INITIAL_URL);
