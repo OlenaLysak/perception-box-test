@@ -8,7 +8,7 @@ export const MyContext = createContext();
 const MyContextProvider = ({ children }) => {
   const [currentUrl, setCurrentUrl] = useState(INITIAL_URL);
   const [selected, setSelected] = useState('');
-  // const [currChar, setCurrChar] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     if (!selected) return setCurrentUrl(INITIAL_URL);
@@ -23,6 +23,8 @@ const MyContextProvider = ({ children }) => {
     currentUrl,
     setCurrentUrl,
     setSelected,
+    currentPage,
+    setCurrentPage,
   };
 
   return (

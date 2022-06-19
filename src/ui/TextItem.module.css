@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0;
+}
+.prop {
+  min-width: 100px;
+}
