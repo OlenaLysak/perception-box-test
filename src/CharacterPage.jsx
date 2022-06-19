@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import moment from 'moment';
 
 //Components
 import TextItem from './ui/TextItem';
@@ -8,8 +9,15 @@ import { Link } from 'react-router-dom';
 //Styles
 import styles from './CharacterPage.module.css';
 
+//Constants
+import { INITIAL_URL } from './constants/constants';
+
+//Context
+import useMyContext from './context/useMyContext';
+
 const CharacterPage = () => {
   const [error, setError] = useState('');
+  const { setCurrentPage, setCurrentUrl } = useMyContext();
   const { id } = useParams();
   const [episodes, setEpisodes] = useState('');
   const [character, setCharacter] = useState({
@@ -35,6 +43,11 @@ const CharacterPage = () => {
     setEpisodes(text);
   };
 
+  const handleBackHome = () => {
+    setCurrentPage(1);
+    setCurrentUrl(INITIAL_URL);
+  };
+
   useEffect(() => {
     fetch(`https://rickandmortyapi.com/api/character/${id}`)
       .then((response) => response.json())
@@ -49,7 +62,7 @@ const CharacterPage = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Link to="/">
+      <Link to="/" onClick={handleBackHome}>
         <h2>Back Home</h2>
       </Link>
       <div className={styles.charCard}>
@@ -65,7 +78,10 @@ const CharacterPage = () => {
           <TextItem title="Location" value={character.location?.name} />
           <TextItem title="Episode" value={episodes} />
           <TextItem title="Status" value={character.status} />
-          <TextItem title="Created" value={character.created} />
+          <TextItem
+            title="Created"
+            value={moment(character.created).format('MMM Do YY')}
+          />
         </div>
       </div>
     </div>

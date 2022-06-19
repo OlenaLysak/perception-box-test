@@ -14,8 +14,8 @@ let cx = classNames.bind(styles);
 
 const Pagination = ({ pageInfo, children }) => {
   const { pages, next, prev } = pageInfo;
-  const { currentPage, setCurrentPage } = useMyContext();
-  const { currentUrl, setCurrentUrl } = useMyContext();
+  const { currentPage, setCurrentPage, currentUrl, setCurrentUrl } =
+    useMyContext();
 
   function goToNextPage() {
     setCurrentPage((page) => page + 1);
