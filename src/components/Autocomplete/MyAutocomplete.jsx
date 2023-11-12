@@ -37,7 +37,7 @@ const MyAutocomplete = ({ handleOptionSelected }) => {
 
   return (
     <Autocomplete
-      sx={{ width: 350 }}
+      sx={{ width: '350px' }}
       options={options}
       onChange={(e, value) => handleOptionSelected(e, value)}
       onInputChange={(e, value) => handleInputChange(value)}

@@ -2,14 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 500px;
   margin-bottom: 20px;
 }
 
 .list {
   list-style-type: circle;
   margin-bottom: 30px;
-  width: 400px;
 }
 
 .listItem {
