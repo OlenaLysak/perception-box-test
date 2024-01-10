@@ -36,7 +36,7 @@
 }
 
 .paginationItem.active {
-  border: 0px solid #888;
+  border: 1px solid #888;
   color: #888;
   pointer-events: none;
   background-color: lightgray;
