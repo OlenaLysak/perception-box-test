@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   background-color: lightgray;
-  height: 100vh;
+  min-height: 100vh;
 }
 .charCard {
   background-color: white;
