@@ -7,7 +7,7 @@
 
 .paginationItem {
   background: #fff;
-  border: 1px solid #666;
+  border: 2px solid #666;
   padding: 10px 15px;
   border-radius: 50%;
   height: 45px;
@@ -39,6 +39,7 @@
   border: 0px solid #888;
   color: #888;
   pointer-events: none;
+  background-color: lightgray;
 }
 
 .prev.disabled,
@@ -46,4 +47,5 @@
   pointer-events: none;
   box-shadow: none;
   color: #999;
+  background-color: lightgray;
 }

@@ -62,15 +62,15 @@ const CharacterPage = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.button}>
-        <Link
-          style={{ textDecoration: 'none', color: 'black' }}
-          to="/"
-          onClick={handleBackHome}
-        >
+      <Link
+        style={{ textDecoration: 'none', color: 'black' }}
+        to="/"
+        onClick={handleBackHome}
+      >
+        <div className={styles.button}>
           <h2>Back Home</h2>
-        </Link>
-      </div>
+        </div>
+      </Link>
 
       <div className={styles.charCard}>
         <img
