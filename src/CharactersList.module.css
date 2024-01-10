@@ -8,6 +8,7 @@
 .list {
   list-style-type: circle;
   margin-bottom: 30px;
+  min-width: 300px;
 }
 
 .listItem {

@@ -12,7 +12,6 @@ const CharactersList = ({ characters, pageInfo }) => {
         <ul className={styles.list}>
           {characters.map((item) => (
             <li key={item.id}>
-              {console.log(item.status)}
               <Link
                 to={`/${item.id}`}
                 style={{ textDecoration: 'none', color: 'black' }}
