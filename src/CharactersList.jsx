@@ -12,13 +12,24 @@ const CharactersList = ({ characters, pageInfo }) => {
         <ul className={styles.list}>
           {characters.map((item) => (
             <li key={item.id}>
+              {console.log(item.status)}
               <Link
                 to={`/${item.id}`}
                 style={{ textDecoration: 'none', color: 'black' }}
               >
                 <div className={styles.listItem}>
                   <div>{item.name}</div>
-                  <div className={styles.status}>{item.status}</div>
+                  <div
+                    className={`${
+                      item.status === 'Alive'
+                        ? styles.statusAlive
+                        : item.status === 'Dead'
+                        ? styles.statusDead
+                        : styles.statusunknown
+                    }`}
+                  >
+                    {item.status}
+                  </div>
                 </div>
               </Link>
             </li>

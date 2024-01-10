@@ -13,10 +13,16 @@
 .listItem {
   display: flex;
   justify-content: space-between;
-  margin: 5px;
-  border-bottom: solid 1px gray;
+  margin: 10px 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.status {
+.statusAlive {
+  color: green;
+}
+.statusDead {
   color: red;
+}
+.statusunknown {
+  color: purple;
 }

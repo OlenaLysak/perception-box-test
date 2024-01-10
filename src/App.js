@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <header className={styles.AppHeader}>Rick and Morty test task</header>
+      <header className={styles.AppHeader}>Rick and Morty Test Task</header>
       <MyAutocomplete handleOptionSelected={handleOptionSelected} />
       <CharactersList characters={characters} pageInfo={pageInfo} />
     </div>
